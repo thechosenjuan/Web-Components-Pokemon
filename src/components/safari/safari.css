@@ -1,6 +1,7 @@
 .image__pokemon-battle {
   display: block;
   margin: auto;
+  width: 30%;
 }
 body {
   padding: 0;
@@ -30,4 +31,21 @@ button {
 
 .pokemon-battle__actions {
   text-align: center;
+}
+
+.pokemon-battle__container {
+  position: relative;
+}
+.image__pokemon-sprite {
+  position: absolute;
+  top: 18%;
+  right: 39%;
+}
+
+.pokemon-battle__text {
+  font-family: "VT323";
+  position: absolute;
+  right: 48%;
+  top: 56%;
+  font-size: 20px;
 }
