@@ -41,8 +41,14 @@ button {
   top: 18%;
   right: 39%;
 }
+.image__pokemon-sprite--pokeball {
+  position: absolute;
+  top: 28%;
+  width: 3%;
+  left: 56%;
+}
 
-.pokemon-battle__text {
+.pokemon-battle__text-container {
   font-family: "VT323";
   position: absolute;
   right: 48%;
