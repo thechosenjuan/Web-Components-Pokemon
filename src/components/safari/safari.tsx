@@ -6,7 +6,6 @@ import { Component, State } from "@stencil/core";
 })
 export class SafariZone {
   @State() currentPokemon = null;
-  @State() isCaptured = false;
   @State() pokemonFled = false;
   @State() encounterText = "";
   getPokemon = async () => {
@@ -17,16 +16,16 @@ export class SafariZone {
     $image = document.querySelector(".image__pokemon-sprite");
     if (!$image) {
       $image = document.querySelector(".image__pokemon-sprite--pokeball");
-      $image.setAttribute("class", "image__pokemon-sprite");
     }
-
+    console.log($image);
     let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
       .then(response => response.json())
       .then(pokemon => {
-        $image.setAttribute("style", "visibility:hidden");
+        $image.setAttribute("class", "image__pokemon-sprite");
         return pokemon;
       });
-    $image.setAttribute("style", "visibility:visible");
+
+    $image.setAttribute("class", "image__pokemon-sprite");
     this.currentPokemon = pokemon;
     this.encounterText = `A wild ${pokemon.name.toUpperCase()} appeared!`;
 
@@ -43,10 +42,10 @@ export class SafariZone {
       this.pokemonFled = true;
       this.currentPokemon = null;
       let $image = document.querySelector(".image__pokemon-sprite");
-      $image.setAttribute("style", "display:none");
+      $image.setAttribute("style", "visibility:hidden");
       goingToFlee = true;
     }
-    return goingToFlee
+    return goingToFlee;
   };
   didCatch = () => {
     let goingToCatch = false;
@@ -62,20 +61,15 @@ export class SafariZone {
         $image.setAttribute("class", "image__pokemon-sprite--pokeball");
         $image.setAttribute("src", "../../assets/images/pokeball.png");
         this.encounterText = `Gotcha! ${this.currentPokemon.name.toUpperCase()} was caught!`;
-        this.isCaptured = true;
         this.currentPokemon = null;
       } else {
         this.encounterText = `Oh no! ${this.currentPokemon.name.toUpperCase()} broke free!`;
         this.goingToFlee();
       }
-
     }
   };
 
   throwRock = () => {
-    console.log(this.currentPokemon);
-    console.log(this.pokemonFled);
-    console.log
     if (this.currentPokemon && !this.pokemonFled) {
       this.encounterText = `${this.currentPokemon.name.toUpperCase()} is angry!`;
       this.goingToFlee();
@@ -85,7 +79,7 @@ export class SafariZone {
   throwBerry = () => {
     if (this.currentPokemon && !this.pokemonFled) {
       this.encounterText = `${this.currentPokemon.name.toUpperCase()} is eating!`;
-      this.goingToFlee()
+      this.goingToFlee();
     }
   };
 
@@ -95,7 +89,7 @@ export class SafariZone {
         <img
           src="../../assets/images/pokemon-battle.png"
           class="image__pokemon-battle"
-        />
+         alt="Pokemon battle scene"/>
         <div class="pokemon-battle__text-container">
           {<p class="pokemon-battle__text">{this.encounterText}</p>}
         </div>
