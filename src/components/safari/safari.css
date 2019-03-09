@@ -1,0 +1,33 @@
+.image__pokemon-battle {
+  display: block;
+  margin: auto;
+}
+body {
+  padding: 0;
+  background: linear-gradient( 15deg, rgba(41, 41, 41, 1) 4%, rgba(49, 49, 49, 1) 24%, rgba(128, 128, 128, 1) 64%, rgba(138, 138, 138, 1) 70%, rgba(230, 230, 230, 1) 81%, rgba(255, 255, 255, 1) 86%, rgba(220, 220, 220, 1) 89%, rgba(230, 230, 230, 1) 100% );
+  background-color: #09a8ff;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+}
+button {
+  background: #5851ff;
+  color: white;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);
+  box-shadow: 0 8px 16px rgba(0,0,0,.1), 0 3px 6px rgba(0,0,0,.08);
+  outline: 0;
+  letter-spacing: .04em;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
+  cursor: pointer;
+  margin: 8px;
+}
+
+.pokemon-battle__actions {
+  text-align: center;
+}
