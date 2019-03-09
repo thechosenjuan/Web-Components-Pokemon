@@ -1,7 +1,7 @@
 # Web Components Pokemon App
 Pokemon Web App using Stencil.js that allows you to encounter Pokémon and view them in the Pokédex.
 
-**Note: This project was based on @siliconunicorn Codepen: https://codepen.io/siliconunicorn/pen/VqoxXP
+**Note*: This project was based on @siliconunicorn Codepen: https://codepen.io/siliconunicorn/pen/VqoxXP
 ## Getting Started
 To start the app, run:
 
