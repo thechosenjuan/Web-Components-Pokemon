@@ -17,14 +17,13 @@ export class SafariZone {
     if (!$image) {
       $image = document.querySelector(".image__pokemon-sprite--pokeball");
     }
-    console.log($image);
+    $image.setAttribute("style", "visibility: visible");
     let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
       .then(response => response.json())
       .then(pokemon => {
         $image.setAttribute("class", "image__pokemon-sprite");
         return pokemon;
       });
-
     $image.setAttribute("class", "image__pokemon-sprite");
     this.currentPokemon = pokemon;
     this.encounterText = `A wild ${pokemon.name.toUpperCase()} appeared!`;
@@ -37,13 +36,13 @@ export class SafariZone {
   };
   goingToFlee = () => {
     let goingToFlee = false;
+    let $image = document.querySelector(".image__pokemon-sprite");
     if (Math.floor(Math.random() * 15) >= 12) {
       this.encounterText = `${this.currentPokemon.name.toUpperCase()} ran away!`;
       this.pokemonFled = true;
       this.currentPokemon = null;
-      let $image = document.querySelector(".image__pokemon-sprite");
-      $image.setAttribute("style", "visibility:hidden");
       goingToFlee = true;
+      $image.setAttribute("style", "visibility: hidden");
     }
     return goingToFlee;
   };
@@ -89,7 +88,8 @@ export class SafariZone {
         <img
           src="../../assets/images/pokemon-battle.png"
           class="image__pokemon-battle"
-         alt="Pokemon battle scene"/>
+          alt="Pokemon battle scene"
+        />
         <div class="pokemon-battle__text-container">
           {<p class="pokemon-battle__text">{this.encounterText}</p>}
         </div>
